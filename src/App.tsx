@@ -25,6 +25,13 @@ const DUMMY_EXPENSES = [
   },
 ]
 
+type Expense = {
+  id: string
+  title: string
+  amount: number
+  date: Date
+}
+
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
 
