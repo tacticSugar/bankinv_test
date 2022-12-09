@@ -3,6 +3,13 @@ import React, { useState } from 'react'
 import NewExpense from './components/NewExpense/NewExpense'
 import Expenses from './components/Expenses/Expenses'
 
+export type Expense = {
+  id: string
+  title: string
+  amount: number
+  date: Date
+}
+
 const DUMMY_EXPENSES = [
   {
     id: 'e1',
@@ -25,18 +32,11 @@ const DUMMY_EXPENSES = [
   },
 ]
 
-type Expense = {
-  id: string
-  title: string
-  amount: number
-  date: Date
-}
-
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
 
-  const addExpenseHandler = (expense) => {
-    setExpenses((prevExpenses) => {
+  const addExpenseHandler = (expense: Expense) => {
+    setExpenses((prevExpenses: Expense[]) => {
       return [expense, ...prevExpenses]
     })
   }
